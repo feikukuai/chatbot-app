@@ -1,6 +1,6 @@
 name: paper
 
-#on:
+on:
   push:
     branches:
       - main
