@@ -1,0 +1,32 @@
+// 定义构建脚本扩展，可以在整个项目范围内使用这些属性
+buildscript {
+    ext {
+        // 定义一个名为compose_ui_version的扩展属性，用于指定Compose UI的版本
+        compose_ui_version = '1.3.3'
+    }
+}
+
+// 这是项目的顶级构建文件，可以在这里添加适用于所有子项目/模块的配置选项
+plugins {
+    // 应用Android应用程序插件，但不立即应用，以便在子项目中使用
+    id 'com.android.application' version '7.4.1' apply false
+    // 应用Android库插件，同样不立即应用
+    id 'com.android.library' version '7.4.1' apply false
+    // 应用Kotlin Android插件，不立即应用
+    id 'org.jetbrains.kotlin.android' version '1.8.10' apply false
+    // 应用Google的Dagger Hilt Android插件，不立即应用
+    id 'com.google.dagger.hilt.android' version '2.45' apply false
+}
+
+// 添加依赖项，以便在所有子项目中可用
+allprojects {
+    repositories {
+        // 确保所有子项目都使用相同的仓库配置
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        // 添加Apache POI的OOXML库依赖项
+        implementation 'org.apache.poi:poi-ooxml:5.2.2'
+    }
+}
