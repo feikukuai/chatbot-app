@@ -1,0 +1,29 @@
+// 配置插件管理，定义了插件仓库的列表
+pluginManagement {
+    repositories {
+        // 添加Google的Maven仓库，用于获取Android Gradle插件和其他Google相关的库
+        google()
+        // 添加Maven Central仓库，这是主要的Java和Android库的中央仓库
+        mavenCentral()
+        // 添加Gradle插件门户，用于获取Gradle插件
+        gradlePluginPortal()
+    }
+}
+
+// 配置依赖解析管理，定义了项目依赖的仓库和策略
+dependencyResolutionManagement {
+    // 设置仓库模式为FAIL_ON_PROJECT_REPOS，这意味着如果子项目尝试定义自己的仓库，构建将失败
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        // 添加Google的Maven仓库，用于获取Android Gradle插件和其他Google相关的库
+        google()
+        // 添加Maven Central仓库，这是主要的Java和Android库的中央仓库
+        mavenCentral()
+    }
+}
+
+// 设置根项目的名称，这通常用于在构建输出中标识项目
+rootProject.name = "Paper"
+
+// 包含一个名为'app'的子项目到构建中，这意味着'app'目录下的build.gradle文件将被处理
+include ':app'
